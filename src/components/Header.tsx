@@ -2,7 +2,11 @@ import { useState, useEffect } from 'react';
 import { Menu, X, Grid3X3 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
-const Header = () => {
+interface HeaderProps {
+  onBookNow?: () => void;
+}
+
+const Header = ({ onBookNow }: HeaderProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -23,11 +27,10 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled
-          ? 'bg-background/95 backdrop-blur-md shadow-dark'
-          : 'bg-transparent'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
+        ? 'bg-background/95 backdrop-blur-md shadow-dark'
+        : 'bg-transparent'
+        }`}
     >
       <div className="container mx-auto px-6 lg:px-12">
         <div className="flex items-center justify-between h-20">
@@ -35,7 +38,7 @@ const Header = () => {
           <div className="flex items-center gap-3">
             <Grid3X3 className="w-6 h-6 text-primary" />
             <span className="font-display text-xl font-semibold tracking-wider text-foreground">
-              PRESTIGE<span className="text-primary">.</span>
+              PRESTIGE ESTATES<span className="text-primary">.</span>
             </span>
           </div>
 
@@ -54,8 +57,8 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button variant="gold" size="lg">
-              Book Consultation
+            <Button variant="gold" size="lg" onClick={onBookNow}>
+              Book Now
             </Button>
           </div>
 
@@ -70,9 +73,8 @@ const Header = () => {
 
         {/* Mobile Menu */}
         <div
-          className={`md:hidden overflow-hidden transition-all duration-500 ${
-            isMobileMenuOpen ? 'max-h-96 pb-6' : 'max-h-0'
-          }`}
+          className={`md:hidden overflow-hidden transition-all duration-500 ${isMobileMenuOpen ? 'max-h-96 pb-6' : 'max-h-0'
+            }`}
         >
           <nav className="flex flex-col gap-4 pt-4">
             {navLinks.map((link) => (
@@ -85,8 +87,11 @@ const Header = () => {
                 {link.name}
               </a>
             ))}
-            <Button variant="gold" size="lg" className="mt-4">
-              Book Consultation
+            <Button variant="gold" size="lg" className="mt-4" onClick={() => {
+              setIsMobileMenuOpen(false);
+              onBookNow?.();
+            }}>
+              Book Now
             </Button>
           </nav>
         </div>

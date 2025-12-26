@@ -27,11 +27,10 @@ const Contact = () => {
   };
 
   const socialLinks = [
-    { name: 'Facebook', icon: 'f' },
+    { name: 'Facebook', icon: 'FB' },
     { name: 'Twitter', icon: '𝕏' },
-    { name: 'Telegram', icon: '➤' },
-    { name: 'Instagram', icon: '📷' },
-    { name: 'Threads', icon: '@' },
+    { name: 'Instagram', icon: 'IG' },
+    { name: 'Threads', icon: 'TH' },
   ];
 
   return (
@@ -126,6 +125,8 @@ const Contact = () => {
                     <a
                       key={social.name}
                       href="#"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:border-primary hover:text-primary transition-all duration-300 text-sm"
                       aria-label={social.name}
                       style={{ transitionDelay: `${index * 50}ms` }}

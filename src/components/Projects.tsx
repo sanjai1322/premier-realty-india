@@ -184,9 +184,9 @@ const Projects = () => {
           {/* Projects Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0">
             {projects.map((project, index) => (
-              <ScrollReveal 
-                key={project.id} 
-                animation="fade-up" 
+              <ScrollReveal
+                key={project.id}
+                animation="fade-up"
                 delay={index * 100}
                 threshold={0.05}
               >
@@ -201,9 +201,8 @@ const Projects = () => {
                     <img
                       src={project.image}
                       alt={project.title}
-                      className={`w-full h-full object-cover transition-all duration-700 ${
-                        hoveredId === project.id ? 'scale-110' : 'scale-100'
-                      }`}
+                      className={`w-full h-full object-cover transition-all duration-700 ${hoveredId === project.id ? 'scale-110' : 'scale-100'
+                        }`}
                     />
                   </div>
 
@@ -227,16 +226,15 @@ const Projects = () => {
                       <div className="flex items-center justify-between">
                         <div>
                           <p className="text-xs text-muted-foreground">{project.location}</p>
-                          <p className="text-sm font-semibold text-primary mt-1">{project.price} onwards</p>
+                          <p className="text-sm font-semibold text-primary mt-1">Starting from {project.price}</p>
                         </div>
-                        
+
                         {/* Plus Button */}
                         <button
-                          className={`w-10 h-10 rounded-full border border-border flex items-center justify-center text-foreground transition-all duration-500 ${
-                            hoveredId === project.id
+                          className={`w-10 h-10 rounded-full border border-border flex items-center justify-center text-foreground transition-all duration-500 ${hoveredId === project.id
                               ? 'bg-primary border-primary text-primary-foreground scale-110'
                               : 'bg-transparent hover:border-primary'
-                          }`}
+                            }`}
                         >
                           <Plus className="w-5 h-5" />
                         </button>

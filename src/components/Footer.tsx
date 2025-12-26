@@ -20,7 +20,7 @@ const Footer = () => {
                 <span className="text-primary">Estates</span>
               </h3>
               <p className="text-xs text-muted-foreground mt-2">
-                All Rights Reserved 2024
+                All Rights Reserved 2025
               </p>
             </div>
 

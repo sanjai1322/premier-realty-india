@@ -44,11 +44,11 @@ const PropertyModal = ({ property, isOpen, onClose }: PropertyModalProps) => {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
       {/* Backdrop */}
-      <div 
+      <div
         className="absolute inset-0 bg-background/95 backdrop-blur-sm animate-fade-in"
         onClick={onClose}
       />
-      
+
       {/* Modal */}
       <div className="relative w-full max-w-6xl max-h-[90vh] mx-4 bg-charcoal border border-border rounded-lg overflow-hidden animate-scale-in">
         {/* Close Button */}
@@ -66,21 +66,19 @@ const PropertyModal = ({ property, isOpen, onClose }: PropertyModalProps) => {
             <div className="absolute top-4 left-4 z-10 flex gap-2">
               <button
                 onClick={() => setActiveTab('gallery')}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                  activeTab === 'gallery'
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${activeTab === 'gallery'
                     ? 'bg-primary text-primary-foreground'
                     : 'bg-background/80 backdrop-blur-sm text-foreground hover:bg-background'
-                }`}
+                  }`}
               >
                 Gallery
               </button>
               <button
                 onClick={() => setActiveTab('floorplan')}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                  activeTab === 'floorplan'
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${activeTab === 'floorplan'
                     ? 'bg-primary text-primary-foreground'
                     : 'bg-background/80 backdrop-blur-sm text-foreground hover:bg-background'
-                }`}
+                  }`}
               >
                 Floor Plan
               </button>
@@ -95,7 +93,7 @@ const PropertyModal = ({ property, isOpen, onClose }: PropertyModalProps) => {
                     alt={`${property.title} - Image ${currentImageIndex + 1}`}
                     className="w-full h-full object-cover transition-opacity duration-500"
                   />
-                  
+
                   {/* Navigation Arrows */}
                   <button
                     onClick={prevImage}
@@ -116,11 +114,10 @@ const PropertyModal = ({ property, isOpen, onClose }: PropertyModalProps) => {
                       <button
                         key={index}
                         onClick={() => setCurrentImageIndex(index)}
-                        className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                          index === currentImageIndex
+                        className={`w-2 h-2 rounded-full transition-all duration-300 ${index === currentImageIndex
                             ? 'bg-primary w-6'
                             : 'bg-foreground/50 hover:bg-foreground'
-                        }`}
+                          }`}
                       />
                     ))}
                   </div>
@@ -155,9 +152,8 @@ const PropertyModal = ({ property, isOpen, onClose }: PropertyModalProps) => {
             <div className="bg-background/50 rounded-lg p-4 mb-6">
               <div className="flex items-baseline gap-2">
                 <span className="font-display text-2xl font-semibold text-primary">
-                  {property.price}
+                  Starting from {property.price}
                 </span>
-                <span className="text-sm text-muted-foreground">onwards</span>
               </div>
               <p className="text-sm text-muted-foreground mt-1">
                 {property.pricePerSqft} per sq.ft.

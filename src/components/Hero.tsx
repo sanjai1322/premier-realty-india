@@ -1,7 +1,11 @@
 import { MapPin, Phone, Mail, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
-const Hero = () => {
+interface HeroProps {
+  onBookNow?: () => void;
+}
+
+const Hero = ({ onBookNow }: HeroProps) => {
   return (
     <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background Image with Overlay */}
@@ -39,15 +43,16 @@ const Hero = () => {
             <br />
             ALWAYS
           </h1>
-          
+
           <p className="mt-6 text-lg text-muted-foreground max-w-md animate-fade-up animation-delay-200">
             Crafting extraordinary living spaces across India's most prestigious locations since 1995.
           </p>
 
-          <Button 
-            variant="gold" 
-            size="xl" 
+          <Button
+            variant="gold"
+            size="xl"
             className="mt-10 animate-fade-up animation-delay-300"
+            onClick={onBookNow}
           >
             Book Now
           </Button>
