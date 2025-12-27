@@ -201,6 +201,8 @@ const Projects = () => {
                     <img
                       src={project.image}
                       alt={project.title}
+                      // ⚡ Bolt: Added lazy loading to defer offscreen image loading, improving initial page load performance.
+                      loading="lazy"
                       className={`w-full h-full object-cover transition-all duration-700 ${hoveredId === project.id ? 'scale-110' : 'scale-100'
                         }`}
                     />
