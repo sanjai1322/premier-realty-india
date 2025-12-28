@@ -1,10 +1,13 @@
-import { useState } from 'react';
+import { useState, memo } from 'react';
 import { Phone, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
 import ScrollReveal from './ScrollReveal';
 
-const Contact = () => {
+// Bolt ⚡: Memoizing this component to prevent unnecessary re-renders.
+// This component's state is self-contained and it doesn't receive props,
+// so we can avoid re-renders when the parent component's state changes.
+const Contact = memo(() => {
   const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: '',
@@ -158,6 +161,6 @@ const Contact = () => {
       </div>
     </section>
   );
-};
+});
 
 export default Contact;
