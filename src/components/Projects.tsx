@@ -1,7 +1,9 @@
-import { useState } from 'react';
+import { useState, lazy, Suspense } from 'react';
 import { Plus, Trees, Dumbbell, Shield, Waves, Car, Wifi, Coffee, Heart } from 'lucide-react';
-import PropertyModal, { PropertyDetails } from './PropertyModal';
+import { type PropertyDetails } from './PropertyModal';
 import ScrollReveal from './ScrollReveal';
+
+const PropertyModal = lazy(() => import('./PropertyModal'));
 
 const projects: PropertyDetails[] = [
   {
@@ -254,11 +256,13 @@ const Projects = () => {
       </section>
 
       {/* Property Modal */}
-      <PropertyModal
-        property={selectedProperty}
-        isOpen={isModalOpen}
-        onClose={handleCloseModal}
-      />
+      <Suspense fallback={<div>Loading...</div>}>
+        <PropertyModal
+          property={selectedProperty}
+          isOpen={isModalOpen}
+          onClose={handleCloseModal}
+        />
+      </Suspense>
     </>
   );
 };
