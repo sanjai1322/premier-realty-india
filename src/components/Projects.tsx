@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, memo } from 'react';
 import { Plus, Trees, Dumbbell, Shield, Waves, Car, Wifi, Coffee, Heart } from 'lucide-react';
 import PropertyModal, { PropertyDetails } from './PropertyModal';
 import ScrollReveal from './ScrollReveal';
@@ -263,4 +263,7 @@ const Projects = () => {
   );
 };
 
-export default Projects;
+// ⚡ Bolt: Memoized Projects component to prevent unnecessary re-renders.
+// This is a performance optimization that prevents the component from re-rendering
+// when its parent component's state changes, but its own props remain the same.
+export default memo(Projects);
