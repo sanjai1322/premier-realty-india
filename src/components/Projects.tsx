@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, memo } from 'react';
 import { Plus, Trees, Dumbbell, Shield, Waves, Car, Wifi, Coffee, Heart } from 'lucide-react';
 import PropertyModal, { PropertyDetails } from './PropertyModal';
 import ScrollReveal from './ScrollReveal';
@@ -150,7 +150,9 @@ const projects: PropertyDetails[] = [
   },
 ];
 
-const Projects = () => {
+// ⚡ Bolt: Memoized Projects component to prevent re-renders when parent state changes.
+// This is a heavy component with its own state and no props, so it's a perfect candidate for memoization.
+const Projects = memo(() => {
   const [hoveredId, setHoveredId] = useState<number | null>(null);
   const [selectedProperty, setSelectedProperty] = useState<PropertyDetails | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -261,6 +263,6 @@ const Projects = () => {
       />
     </>
   );
-};
+});
 
 export default Projects;

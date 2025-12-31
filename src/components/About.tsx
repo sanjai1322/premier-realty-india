@@ -1,7 +1,8 @@
+import { memo } from 'react';
 import { Smile, Building2, ChevronRight } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
 
-const About = () => {
+const About = memo(() => {
   const stats = [
     { icon: Smile, value: '2500+', label: 'Happy Families' },
     { icon: Building2, value: '18', label: 'Projects Delivered' },
@@ -93,6 +94,6 @@ const About = () => {
       </div>
     </section>
   );
-};
+});
 
 export default About;
