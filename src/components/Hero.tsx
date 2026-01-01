@@ -1,11 +1,14 @@
 import { MapPin, Phone, Mail, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { memo } from 'react';
 
 interface HeroProps {
   onBookNow?: () => void;
 }
 
-const Hero = ({ onBookNow }: HeroProps) => {
+// ⚡ Bolt: Wrapped in memo to prevent unnecessary re-renders from parent state changes.
+// This component is mostly static, so it only needs to re-render if its props (onBookNow) change.
+const Hero = memo(({ onBookNow }: HeroProps) => {
   return (
     <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background Image with Overlay */}
@@ -92,6 +95,6 @@ const Hero = ({ onBookNow }: HeroProps) => {
       </div>
     </section>
   );
-};
+});
 
 export default Hero;

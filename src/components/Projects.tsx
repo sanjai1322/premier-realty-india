@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, memo } from 'react';
 import { Plus, Trees, Dumbbell, Shield, Waves, Car, Wifi, Coffee, Heart } from 'lucide-react';
 import PropertyModal, { PropertyDetails } from './PropertyModal';
 import ScrollReveal from './ScrollReveal';
@@ -150,7 +150,9 @@ const projects: PropertyDetails[] = [
   },
 ];
 
-const Projects = () => {
+// ⚡ Bolt: Wrapped in memo to prevent unnecessary re-renders from parent state changes.
+// Although this component has its own state, memo prevents it from re-rendering when the parent `Index` component's state changes.
+const Projects = memo(() => {
   const [hoveredId, setHoveredId] = useState<number | null>(null);
   const [selectedProperty, setSelectedProperty] = useState<PropertyDetails | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -261,6 +263,6 @@ const Projects = () => {
       />
     </>
   );
-};
+});
 
 export default Projects;
