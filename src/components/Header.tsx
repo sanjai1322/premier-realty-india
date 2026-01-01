@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, memo } from 'react';
 import { Menu, X, Grid3X3 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -6,7 +6,9 @@ interface HeaderProps {
   onBookNow?: () => void;
 }
 
-const Header = ({ onBookNow }: HeaderProps) => {
+// ⚡ Bolt: Wrapped in memo to prevent unnecessary re-renders from parent state changes.
+// This component is mostly static, so it only needs to re-render if its props (onBookNow) change.
+const Header = memo(({ onBookNow }: HeaderProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -98,6 +100,6 @@ const Header = ({ onBookNow }: HeaderProps) => {
       </div>
     </header>
   );
-};
+});
 
 export default Header;

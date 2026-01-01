@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
@@ -10,8 +10,11 @@ import BookingModal from '@/components/BookingModal';
 const Index = () => {
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
 
-  const openBookingModal = () => setIsBookingModalOpen(true);
-  const closeBookingModal = () => setIsBookingModalOpen(false);
+  // ⚡ Bolt: Wrapped callbacks in useCallback to prevent re-creating functions on every render.
+  // This is crucial for ensuring that memoized children (`Header`, `Hero`) don't re-render unnecessarily
+  // when the parent `Index` component re-renders.
+  const openBookingModal = useCallback(() => setIsBookingModalOpen(true), []);
+  const closeBookingModal = useCallback(() => setIsBookingModalOpen(false), []);
 
   return (
     <main className="bg-background min-h-screen">

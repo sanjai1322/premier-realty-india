@@ -1,10 +1,12 @@
-import { useState } from 'react';
+import { useState, memo } from 'react';
 import { Phone, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
 import ScrollReveal from './ScrollReveal';
 
-const Contact = () => {
+// ⚡ Bolt: Wrapped in memo to prevent unnecessary re-renders from parent state changes.
+// Although this component has its own state, memo prevents it from re-rendering when the parent `Index` component's state changes.
+const Contact = memo(() => {
   const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: '',
@@ -158,6 +160,6 @@ const Contact = () => {
       </div>
     </section>
   );
-};
+});
 
 export default Contact;
