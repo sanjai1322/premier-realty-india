@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import ScrollReveal from './ScrollReveal';
 
 const Footer = () => {
@@ -49,4 +50,6 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+// Bolt ⚡: Memoizing this static component to prevent unnecessary re-renders
+// when the parent component's state changes.
+export default memo(Footer);

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, memo } from 'react';
 import { Phone, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
@@ -160,4 +160,7 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+// Bolt ⚡: Memoizing this component to prevent unnecessary re-renders
+// when the parent component's state changes. Although this component has its own state,
+// memoization is still valuable to prevent re-renders caused by parent state changes.
+export default memo(Contact);
