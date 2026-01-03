@@ -1,6 +1,10 @@
 import ScrollReveal from './ScrollReveal';
+import { memo } from 'react';
 
-const Footer = () => {
+// ⚡ Bolt: Wrapped the Footer component with React.memo to prevent unnecessary re-renders.
+// Since the footer is static, this optimization ensures it only renders once,
+// improving performance on pages where parent components have changing state.
+const Footer = memo(() => {
   const footerLinks = [
     { name: 'Site Map', href: '#' },
     { name: 'Terms of Service', href: '#' },
@@ -47,6 +51,6 @@ const Footer = () => {
       </div>
     </footer>
   );
-};
+});
 
 export default Footer;
