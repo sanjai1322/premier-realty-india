@@ -1,7 +1,12 @@
+import { memo } from 'react';
 import { Smile, Building2, ChevronRight } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
 
-const About = () => {
+// Bolt ⚡: Wrapped with React.memo to prevent unnecessary re-renders.
+// This is a static component, so its props rarely change. Memoization
+// avoids re-rendering when the parent component's state (e.g., modal visibility)
+// changes, improving overall application performance.
+const About = memo(() => {
   const stats = [
     { icon: Smile, value: '2500+', label: 'Happy Families' },
     { icon: Building2, value: '18', label: 'Projects Delivered' },
@@ -93,6 +98,6 @@ const About = () => {
       </div>
     </section>
   );
-};
+});
 
 export default About;
