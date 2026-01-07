@@ -1,7 +1,10 @@
+import { memo } from 'react';
 import { Smile, Building2, ChevronRight } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
 
-const About = () => {
+// Bolt ⚡: Wrapped with React.memo to prevent unnecessary re-renders from parent state changes.
+// This is a static component, so its output is always the same given the same props.
+const About = memo(() => {
   const stats = [
     { icon: Smile, value: '2500+', label: 'Happy Families' },
     { icon: Building2, value: '18', label: 'Projects Delivered' },
@@ -93,6 +96,6 @@ const About = () => {
       </div>
     </section>
   );
-};
+});
 
 export default About;
