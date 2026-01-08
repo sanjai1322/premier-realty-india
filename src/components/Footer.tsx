@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import ScrollReveal from './ScrollReveal';
 
 const Footer = () => {
@@ -49,4 +50,6 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+// Memoized the component to prevent unnecessary re-renders from parent state changes.
+// This component is purely presentational and receives no props.
+export default memo(Footer);
