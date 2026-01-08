@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { Smile, Building2, ChevronRight } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
 
@@ -95,4 +96,6 @@ const About = () => {
   );
 };
 
-export default About;
+// Memoized the component to prevent unnecessary re-renders from parent state changes.
+// This component is purely presentational and receives no props.
+export default memo(About);
