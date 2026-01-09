@@ -1,6 +1,8 @@
+import { memo } from 'react';
 import ScrollReveal from './ScrollReveal';
 
-const Footer = () => {
+// Using React.memo to prevent re-renders when parent state changes, as this component is static.
+const Footer = memo(() => {
   const footerLinks = [
     { name: 'Site Map', href: '#' },
     { name: 'Terms of Service', href: '#' },
@@ -47,6 +49,6 @@ const Footer = () => {
       </div>
     </footer>
   );
-};
+});
 
 export default Footer;
