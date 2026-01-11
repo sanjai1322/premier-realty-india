@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { Smile, Building2, ChevronRight } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
 
@@ -95,4 +96,7 @@ const About = () => {
   );
 };
 
-export default About;
+// ⚡ Bolt: Wrapped with React.memo to prevent unnecessary re-renders.
+// This component is static and doesn't accept props, so it's a perfect candidate for memoization.
+// This optimization prevents the component from re-rendering when the parent `Index` component's state changes.
+export default memo(About);
